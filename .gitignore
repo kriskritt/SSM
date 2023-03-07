@@ -1,0 +1,4 @@
+# Project exclude paths
+/mybatis_helloworld/target/
+/mybatis_parameter/target/
+/mybatis_resultMap/target/

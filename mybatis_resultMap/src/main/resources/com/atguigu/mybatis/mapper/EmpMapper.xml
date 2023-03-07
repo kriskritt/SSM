@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.mybatis.mapper.EmpMapper">
+
+    <!--
+        字段名和属性名不一致的情况，如何处理映射关系
+        1、为查询的字段设置别名，和属性名保持一致
+        2、当字段符合MySQL的要求使用_，而属性符合java的要求使用驼峰
+        此时可以在MyBatis的核心配置文件中设置一个全局配置，可以自动将下划线映射为驼峰
+        emp_id:empId,emp_name:empName
+    -->
+
+    <!--Emp getEmpByEmpId(@Param("empId") Integer empId);-->
+    <select id="getEmpByEmpId" resultType="Emp">
+        <!--select * from t_emp where emp_id = #{empId}-->
+        <!--Emp{empId=null, empName='null', age=20, gender='男'}-->
+        <!--select emp_id empId,emp_name empName,age,gender from t_emp where emp_id = #{empId}-->
+        select * from t_emp where emp_id = #{empId}
+    </select>
+</mapper>
